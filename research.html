@@ -171,7 +171,7 @@ Abstract
 </summary>
 <p>Wildfire-smoke-driven increases in fine particulate matter raise hours worked and employment in Canada’s nine largest metropolitan areas. This response is consistent with productivity impairment requiring longer hours to meet output targets and with degraded outdoor conditions reducing the value of non-work time. Both mechanisms imply welfare losses that standard labour-market statistics record as gains, suggesting output-based damage assessments understate the costs of smoke in urban economies.</p>
 </details>
-<p><a href="./wildfire.pdf">PDF</a></p>
+<p><a href="./wildfire.pdf">PDF</a> <a href="https://github.com/zemarhakim/wildfire-smoke-labour-replication">Replication</a></p>
 <hr>
 <p><strong>Proximity to the Plague: Measuring Locust Exposure and Child Health</strong></p>
 <details>
@@ -294,7 +294,7 @@ One line on what you're working on.
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/zemarhakim\.github\.io\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
