@@ -1,3 +1,5 @@
 /_site/
 /.quarto/
 .Rhistory
+.DS_Store
+

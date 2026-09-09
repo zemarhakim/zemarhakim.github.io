@@ -30,7 +30,7 @@ Wildfire-smoke-driven increases in fine particulate matter raise hours worked an
 
 </details>
 
-[PDF](./wildfire.pdf)
+[PDF](./wildfire.pdf) | [Replication](https://github.com/zemarhakim/wildfire-smoke-labour-replication)
 
 ---
 

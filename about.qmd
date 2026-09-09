@@ -7,7 +7,7 @@ about:
   links:
     - icon: envelope-at
       text: Email
-      href: z.hakim@queensu.ca 
+      href: mailto:z.hakim@queensu.ca
     - icon: linkedin
       text: LinkedIn
       href: www.linkedin.com/in/zemarhakim2229 
