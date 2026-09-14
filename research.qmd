@@ -81,7 +81,7 @@ in drought-prone provinces of southern Africa.
 </details>
 
 
-## Policy Papers and Other Contirbutions
+## Policy Papers and Other Contributions
 
 
 **Patent Monetization Promotion and SSO Participation**
@@ -95,5 +95,5 @@ Simcoe and Zhang (2021) study whether standard setting organizations' intellectu
 *With Global Affairs Canada* | Presented during Canada's G7 Presidency 
 <details> 
 <summary>Project Details</summary>
- This project compiled sanctions data for all five jurisdictions (US, UK, EU, Japan and Canada), recording for each affected product code the specific legal citation (e.g., executive order, EU regulation article, or UK/Canada equivalent) authorizing the restriction, alongside indicators for whether the measure is an import restriction, export restriction, or exemption. The resulting harmonized dataset allows for consistent measurement of the scope and overlap of allied sanctions regimes across countries and over time, providing a foundation for analyzing coordination (or divergence) in toward Russia and the effectiveness of these measures in restricting bilateral trade flows.
+ This project compiled sanctions data for all five jurisdictions (US, UK, EU, Japan and Canada), recording for each affected product code and listing the specific legal citation (e.g., executive order, EU regulation article, or UK/Canada equivalent) authorizing the restriction, alongside indicators for whether the measure is an import restriction, export restriction, or listed persons. The resulting harmonized dataset allows for consistent measurement of the scope and overlap of allied sanctions regimes across countries. The report and associated analysis proivdes a foundation for measuring and understanding coordination (or divergence) toward Russia's full-scale invasion of Ukraine and the effectiveness of these measures in restricting bilateral trade flows.
 </details>
