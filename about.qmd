@@ -16,8 +16,9 @@ about:
       href: https://github.com/zemarhakim
 ---
 
-Hey, glad you stopped by. I'm a PhD candidate in Economics at Queen's University; my research focuses on identifying and understanding the social and economic causal effects of natural disasters.
+Hey, glad you stopped by! I'm a PhD candidate in Economics at Queen's University; my research focuses on identifying and understanding the social and economic causal effects of natural disasters.
 
-In addition to my doctorate, I have worked as a consultant in government and industry. I spent the summer of 2026 as a Senior Associate Intern at Charles River Associates International, working in the Competition and Antitrust Practice in Toronto. Prior to that, I served as a Senior Research Analyst at Global Affairs Canada, where I applied data science to inform policy on Canada's international economic security.
+I enjoy applying quantitative tools to real-world problems. In addition to my doctorate, I have worked as a consultant for the public and private sector. I spent the summer of 2026 as a Senior Associate Intern at Charles River Associates International, working in the Competition and Antitrust Practice in Toronto. Before that, I served as a Senior Research Analyst at Global Affairs Canada, where I applied data science to inform policy on Canada's international economic security.
+
 
 Use one of the links above to get in touch. Whether you're curious about grad school, working as a professional economist, or just want to talk research, I'd love to hear from you.

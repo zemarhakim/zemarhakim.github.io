@@ -8,7 +8,9 @@ website:
       - href: about.qmd
         text: Home
       - href: zh_cv.pdf
-        text: CV
+        text: Academic CV
+      - href: zh_resume.pdf
+        text: Résumé
       - href: research.qmd
         text: Research
 
