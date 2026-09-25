@@ -12,8 +12,10 @@ Natural disasters · Causal inference · Development economics
 
 <details>
 <summary>Abstract</summary>
-Studies of agricultural shocks typically define exposure as geographic proximity to a recorded event, treating measurement as a preprocessing step rather than a substantive choice. I construct an alternative exposure measure for Kenya's 2019–2022 desert locust invasion that incorporates locust physiology, crop susceptibility, and vegetation health into a damage-based definition. Applying identification strategies from the existing literature, I find that proximity-based measures yield counterintuitive estimates, while the damage-based measure reveals no detectable effect of the invasion on child health—a null that is consistent with Kenya's relatively favorable outcomes compared to neighboring countries during the regional crisis.
+I investigate the early childhood health outcomes of the Kenyan 2020--2021 desert locust invasion. To account for the multi harvest setting, I build a treatment that conditions on the insect's biological capacity to damage vegetation, the growth stage of the local crop, and subsequent vegetal decline, matching georeferenced locust observations to the 2022 Kenya Demographic and Health Survey. Children exposed in utero within 30~km of a verified damage event carry weight-for-height z-scores 0.185 standard deviations below the control group, and are 26 percent more likely to be clinically wasted. Height-for-age does not move. The estimate loads on third-trimester exposure. The effect is largest in riverine livelihood zones, where households depend most heavily on their own harvest and have the least market cushion when it fails: exposed riverine children lose an additional 0.25 standard deviations on weight-for-height beyond the average cropping-zone effect.
 </details>
+
+[PDF](./locust_kenya_sept_2025.pdf) 
 
 
 <!--
@@ -28,7 +30,7 @@ Studies of agricultural shocks typically define exposure as geographic proximity
 ## Working Papers
 
 **Wildfire smoke, air quality, and the limits of short-run labor-market impacts in Canadian cities**
-*With Christopher S. Cotton* | Submitted August 2026: Nature Climate Change
+*With [Christopher S. Cotton](https://christophercotton.ca/)* | Submitted August 2026: Nature Climate Change
 
 
 <details>
@@ -51,7 +53,7 @@ A central concern in the microinsurance literature is whether formal insurance c
 
 <details>
 
-[PDF] [SSRN]
+[PDF](./ibli_kenya.pdf)
 
 
 ## Work in Progress
