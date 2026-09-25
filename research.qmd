@@ -51,7 +51,7 @@ Last updated: April, 2026
 
 A central concern in the microinsurance literature is whether formal insurance contracts crowd out informal risk-sharing arrangements that underpin livelihoods in developing economies. Using six rounds of panel data from pastoralist households in Marsabit, northern Kenya, we estimate the causal effect of Index-Based Livestock Insurance (IBLI) on informal livestock lending during drought. We instrument IBLI uptake with randomly distributed price discount coupons and exploit exogenous variation in drought severity measured by the Standardised Precipitation-Evapotranspiration Index (SPEI). Our two-stage least squares estimates, corrected for small-cluster bias with 16 sub-location clusters, show that IBLI coverage significantly \emph{increases} the probability of borrowing livestock during drought---a crowding-in effect, not crowding out. A one-standard-deviation worsening of drought conditions raises the probability of livestock borrowing by roughly 39~percentage points more for insured than uninsured households. Placebo tests on livestock gifts and outward loans show no significant effects, supporting the exclusion restriction. Generalised random forest estimates reveal that treatment effect heterogeneity is driven primarily by drought severity and livestock wealth. These findings suggest that formal index insurance complements, rather than substitutes for, informal reciprocal lending networks, providing a new channel through which microinsurance improves household resilience.
 
-<details>
+</details>
 
 [PDF](./ibli_kenya.pdf)
 
