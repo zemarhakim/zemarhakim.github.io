@@ -16,7 +16,7 @@ I investigate the early childhood health outcomes of the Kenyan 2020–2021 dese
 below the control group, and are 26 percent more likely to be clinically wasted. Effects are strongest when children are exposed in the second and third trimester. Riverine livelihood zones, where households depend heavily on their own harvest and have the least market cushion lose an additional 0.25 standard deviations on weight-for-height beyond the average cropping-zone effect.
 </details>
 
-[PDF](./locust_sept28_2026.pdf) 
+[PDF](./jmp.pdf) 
 
 
 <!--
@@ -31,7 +31,7 @@ below the control group, and are 26 percent more likely to be clinically wasted.
 ## Working Papers
 
 **Wildfire smoke, air quality, and the limits of short-run labor-market impacts in Canadian cities**
-*With [Christopher S. Cotton](https://christophercotton.ca/)* | Submitted August 2026: Nature Climate Change
+*With [Christopher S. Cotton](https://christophercotton.ca/)* | Submitted: PNAS Nexus
 
 
 <details>
@@ -67,6 +67,8 @@ A central concern in the microinsurance literature is whether formal insurance c
 
 Drought is widely expected to harm early childhood health, yet credible causal estimates remain scarce. Observational studies typically link child outcomes to moisture indices measured at survey-cluster locations, which are displaced for confidentiality and may poorly capture the water deficit each household actually experiences. Such measurement error, together with the endogeneity of where and when households are exposed, complicates interpretation of existing estimates. This paper explores a strategy for identifying the causal effect of early-life drought exposure on child stunting in Angola, using pooled DHS surveys from 2015-16 and 2023-24 that span the 2018-2021 southern African drought. I use low-frequency oscillations in atmospheric circulation, specifically the Southern Annular Mode, as a source of plausibly exogenous variation in moisture conditions, and I evaluate how alternative instrument definitions and exposure windows (in utero, first year, second year, and cumulative) affect the strength of the first stage. The project is a work in progress: I document the relevance and limitations of this approach, discuss threats to the exclusion restriction, and assess whether circulation-driven variation can improve on standard observational measures of drought exposure. The goal is to inform the targeting and timing of nutrition and water, sanitation, and hygiene interventions in drought-prone regions of southern Africa.
 </details>
+
+**What Replaces the Sun? Wildfire Smoke, Solar Losses, and Power Sector Emissions**
 
 
 ## Policy Papers and Other Contributions
