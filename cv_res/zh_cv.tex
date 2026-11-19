@@ -1,0 +1,568 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage{comment}
+\usepackage[
+    pdftitle={Zemar's CV},
+    pdfauthor={Zemar Hakim},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    % \usepackage[T1]{fontenc} % this breaks sb2nov
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Zemar Hakim - Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\circ$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Updated Fall 2026}\hspace{\widthof{Updated October 2025}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+
+    \placelastupdatedtext
+    \begin{header}
+        \textbf{\fontsize{24 pt}{24 pt}\selectfont Zemar Hakim}
+
+        \vspace{0.3 cm}
+
+        \normalsize
+       % \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}Queen's Economics Department}%
+      %  \kern 0.25 cm%
+       % \AND%
+       % \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{mailto:z.hakim@queensu.ca}{{\footnotesize\faEnvelope[regular]}\hspace*{0.10cm}z.hakim@queensu.ca}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/zemarhakim2229}{{\footnotesize\faLinkedinIn}\hspace*{0.10cm}zemarhakim2229}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+       \mbox{\hrefWithoutArrow{https://zemarhakim.github.io}{{\footnotesize\faLink}\hspace*{0.10cm}zemarhakim.github.io}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{tel:+1 (905) 867 3840}{{\footnotesize\faPhone*}\hspace*{0.10cm}+1 (905) 867-3840}}%
+      %  \kern 0.25 cm%
+      % \AND%
+      % \kern 0.25 cm%
+      %  \mbox{\hrefWithoutArrow{https://github.com/zemarhakim}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}zemarhakim}}%
+    \end{header}
+
+    \vspace{0.3 cm - 0.3 cm}
+
+
+\begin{comment}
+    
+    \section{Quick Guide}
+
+    \begin{onecolentry}
+        \begin{highlightsforbulletentries}
+
+
+        \item Each section title is arbitrary and each section contains a list of entries.
+
+        \item There are 7 unique entry types: \textit{BulletEntry}, \textit{TextEntry}, \textit{EducationEntry}, \textit{ExperienceEntry}, \textit{NormalEntry}, \textit{PublicationEntry}, and \textit{OneLineEntry}.
+
+        \item Select a section title, pick an entry type, and start writing your section!
+
+        \item \href{https://docs.rendercv.com/user_guide/}{Here}, you can find a comprehensive user guide for RenderCV.
+
+
+        \end{highlightsforbulletentries}
+    \end{onecolentry}
+\end{comment}
+    \section{Education}
+
+
+
+        
+        \begin{twocolentry}{
+            
+            
+        \textit{2022-2027 (Expected)}}
+            \textbf{Queen's University}
+
+            \textit{PhD, Economics}
+        \end{twocolentry}
+\begin{comment}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item GPA: 3.9/4.0 (\href{https://example.com}{a link to somewhere})
+                \item \textbf{Coursework:} Computer Architecture, Comparison of Learning Algorithms, Computational Theory
+            \end{highlights}
+        \end{onecolentry}
+\end{comment}
+\vspace{0.2 cm}
+        \begin{twocolentry}{
+ 
+        \textit{2020-2021}
+        }
+            \textbf{Toronto Metropolitan University}
+
+            \textit{MA, International Economics and Finance}
+            
+        \end{twocolentry}
+\vspace{0.2 cm}
+        \begin{twocolentry}{
+ 
+        \textit{2015-2019}
+        }
+            \textbf{Wilfrid Laurier University}
+
+            \textit{BA, Honours Economics}
+            
+        \end{twocolentry}
+
+
+    
+    \section{Research}
+Environmental and Climate Economics, Development Economics, Energy, Applied Econometrics, Causal Inference
+\vspace{0.2cm}
+
+\begin{onecolentry}
+    \textbf{Proximity to the Plague: Measuring Locust Exposure and Child Health}. Job Market Paper.
+    \hrefWithoutArrow{https://zemarhakim.github.io/locust_kenya_sept_2025.pdf}{[PDF]}
+\end{onecolentry}
+\vspace{0.25cm}
+
+\begin{onecolentry}
+    \textbf{Wildfire Smoke, Air Quality, and the Limits of Short-Run Labour-Market Impacts in Canadian Cities}.
+    With Christopher S. Cotton. Submitted to \textit{PNAS}, August 2026.
+    \hrefWithoutArrow{https://zemarhakim.github.io/wildfire.pdf}{[PDF]}
+\end{onecolentry}
+\vspace{0.25cm}
+
+\begin{onecolentry}
+    \textbf{Drought-Proof Generosity: Index Insurance and Informal Livestock Lending in Northern Kenya}.
+    Working paper, April 2026.
+    \hrefWithoutArrow{https://zemarhakim.github.io/ibli_kenya.pdf}{[PDF]}
+\end{onecolentry}
+\vspace{0.25cm}
+
+\begin{onecolentry}
+    \textbf{Born into Drought: Early-Life Exposure and Child Health in Angola}. Work in progress.
+\end{onecolentry}
+\vspace{0.25cm}
+
+\begin{onecolentry}
+    \textbf{What Replaces the Sun? Wildfire Smoke, Solar Losses, and Emissions}. Work in progress
+\end{onecolentry}
+\vspace{0.25cm}
+\begin{onecolentry}
+    \textbf{Economic Shocks: Power Outages and Economic Activity}. With Zachary Robb. Work in progress
+\end{onecolentry}
+
+
+
+\vspace{0.05cm}
+\section{Policy Papers and Other Contributions}
+\vspace{0.2cm}
+
+\begin{onecolentry}
+    \textbf{Patent Monetization Promotion and SSO Participation}. White paper.
+    With Charles River Associates, 2026.
+\end{onecolentry}
+\vspace{0.05cm}
+
+\vspace{0.2cm}
+
+\begin{onecolentry}
+    \textbf{G7 Sanctions Matching Report}. Policy report.
+    With Global Affairs Canada. Presented during Canada's G7 Presidency, 2025.
+\end{onecolentry}
+\vspace{0.05cm}
+
+\section{Conferences}
+\vspace{0.2cm}
+
+\begin{onecolentry}
+    Applied Economics Conference, Institute of Economic Sciences, Belgrade (2026):
+    \textit{Wildfire Smoke, Air Quality, and the Limits of Short-Run Labour-Market Impacts in Canadian Cities}
+\end{onecolentry}
+\vspace{0.1cm}
+
+\begin{onecolentry}
+    Canadian Economics Association Annual Meetings, Simon Fraser University, Vancouver (2026):
+    \textit{Born into Drought: Early-Life Exposure and Child Health in Angola}
+\end{onecolentry}
+\vspace{0.1cm}
+
+\begin{onecolentry}
+    Canadian Economics Association Annual Meetings, Université du Québec à Montréal (2025):
+    \textit{Proximity to the Plague: Measuring Locust Exposure and Child Health}
+\end{onecolentry}
+\vspace{0.1cm}
+
+\begin{onecolentry}
+    Canadian Development Economics Study Group, Concordia University, Montréal (2025):
+    \textit{Proximity to the Plague: Measuring Locust Exposure and Child Health}
+\end{onecolentry}
+
+    \section{Awards}
+    \begin{twocolentry}{
+        \textit{2026}
+        }
+            {Mac Urquhart PhD Award for best second-year paper in Economics (\$2,500)}
+            
+        \end{twocolentry}
+        \begin{twocolentry}{
+        \textit{2022-2026}
+        }
+            {Economics Department Award (\$10,000 x 4)}
+            
+        \end{twocolentry}
+        
+        \begin{twocolentry}{
+        \textit{2024}
+        }
+            {E. Gay Mitchell Graduate Fellowship in Finance (\$8,000)}
+            
+        \end{twocolentry}
+        \begin{twocolentry}{
+        \textit{2020, 2022}
+        }
+            {Ontario Graduate Scholarship (\$15,000 x 2)}
+            
+        \end{twocolentry}
+        \begin{twocolentry}{
+        \textit{2018}
+        }
+            {Dean's List (\$1,500)}
+            
+        \end{twocolentry}
+        \begin{twocolentry}{
+        \textit{2015}
+        }
+            {Wilfrid Laurier Entrance Scholarship (\$15,000)}
+            
+        \end{twocolentry}
+
+
+        
+\begin{comment}   
+    \section{Publications}
+
+
+
+        
+        \begin{samepage}
+            \begin{twocolentry}{
+                Jan 2004
+            }
+                \textbf{3D Finite Element Analysis of No-Insulation Coils}
+
+                \vspace{0.10 cm}
+
+                \mbox{Frodo Baggins}, \mbox{\textbf{\textit{John Doe}}}, \mbox{Samwise Gamgee}
+            \end{twocolentry}
+
+
+            \vspace{0.10 cm}
+
+            \begin{onecolentry}
+        \href{https://doi.org/10.1109/TASC.2023.3340648}{10.1109/TASC.2023.3340648}
+            \end{onecolentry}
+        \end{samepage}
+
+\end{comment}  
+    
+    \section{Professional Experience}
+
+        \begin{twocolentry}{
+\textit{Toronto, Ontario}
+
+\textit{2026}}
+    \textbf{Senior Associate (Summer Intern)}
+    
+    \textit{Charles River Associates}
+\end{twocolentry}
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item White Paper: Patent Monetization Promotion and SSO Participation.
+        \item Conducted quantitative and economic analysis for 5 litigation and merger engagements.
+        \item Built automated codebook to support replication.
+        \item Built and maintained econometric models in R and Stata to evaluate damages and market dynamics.
+        \item Conducted industry research and translated findings into clear reports and presentations for clients.
+    \end{highlights}
+    \end{onecolentry}
+    \vspace{0.2 cm}
+            
+        \begin{twocolentry}{
+        \textit{Ottawa, Ontario}    
+            
+        \textit{2022-2026}}
+            \textbf{Senior Research Analyst (Consultant)}
+            
+            \textit{Global Affairs Canada}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                 \item Policy Paper: G7 Sanctions Gap Analysis
+                
+                \item Designed automated data pipelines in R, Python, and SQL with over 500 million records from 4 federal departments.
+                \item Developed causal and predictive models to quantify the impact of sanctions and conflicts, forecasting trade flows worth more than \$2 trillion annually and identifying anomalous transaction patterns across G7 economies.
+                \item Managed 2 direct reports and supported over 20 ministerial briefings.
+                \item Engineered architecture integrating over 25,000 records across allied jurisdictions, and built interactive dashboards for 3 federal departments.
+            \end{highlights}
+        \end{onecolentry}
+\vspace{0.2 cm}
+%\begin{comment}
+        \begin{twocolentry}{\textit{2025-2026}}
+            \textbf{Economics Expert (Contract)}
+
+            
+            \textit{Mercor}
+        \end{twocolentry}
+        \begin{onecolentry}
+    \begin{highlights}
+              \item Designed AI training data for large language models across 4 projects.
+            \item Diagnosed model failure modes in logic, numerical reasoning and code generation.
+    \end{highlights}
+        \end{onecolentry}
+ 
+        \vspace{0.2 cm}
+%\end{comment}
+        \begin{twocolentry}{\textit{2020-2026}}
+            \textbf{Research Assistant}
+        \end{twocolentry}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Philippe Kabore: Data cleaning and analysis
+                \item Cherie Metcalf: Data visualization and basic analysis
+                \item Hyunju Lee: Literature Review; \hrefWithoutArrow{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3910487}{Overreaction and the Value of Information in a Pandemic}
+            \end{highlights}
+        \end{onecolentry}
+        
+\vspace{0.2 cm}
+
+        \begin{twocolentry}{\textit{2020-2026}}
+            \textbf{Teaching Assistant}
+        \end{twocolentry}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item ECON 290: Energy Economics
+                \item PPEC 200: Introduction to the Study of Politics, Philosophy and Economics
+                \item ECON 110: Head TA, Principles of Economics
+                \item ECON 111: Head TA, Introductory Microeconomics 
+                \item ECON 112: Head TA, Introductory Macroeconomics
+                \item ECON 430: Issues in Economic History
+                \item ECON 831: Issues in North American Economic History
+                \item ECN 606: International Monetary Economics
+            \end{highlights}
+        \end{onecolentry}
+
+\vspace{0.2 cm}
+            \begin{twocolentry}{
+        \textit{Waterloo, Ontario}    
+            
+        \textit{2019 – 2020}
+        }
+            \textbf{President and CEO}
+            
+            \textit{Wilfrid Laurier University Students’ Union }
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                 \item Elected to represent over 17,000 students, managing an \$11 million budget and a team of 5 direct reports to deliver operations, services, and advocacy across institutional, municipal, provincial, and federal levels of government.
+                \item Created and led the university's first institutional committee on student basic needs, addressing food insecurity and housing, and sustained service continuity through emerging crises including the early stages of the COVID-19 pandemic. 
+            \end{highlights}
+        \end{onecolentry}
+
+    
+    \section{Technical Skills}
+
+        \begin{onecolentry}
+            \textbf{Programming Languages:} R, Python, SQL, Stata, MATLAB, ArcGIS, QGIS, PostGIS
+        \end{onecolentry}
+
+\vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Cloud and Collaboration:} GitHub, Microsoft Office (incl. Power BI), Google Suite (incl. GCP), AWS (S3, EC2), Jupyter, \LaTeX, Google Earth Engine, Databricks
+        \end{onecolentry}
+        
+\vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Languages:} English, French, Urdu
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+\section{Volunteering and Community Activity}
+        \begin{onecolentry}
+        Shepherds of Good Hope - Ottawa Homeless Service \\
+            Mississauga Food Bank 
+        \end{onecolentry}
+\section{Citizenship}
+    \begin{onecolentry}
+  \mbox{\hrefWithoutArrow{}{\color{red}{\footnotesize\faCanadianMapleLeaf}\hspace*{0.10cm}\color{black}Canadian}}%
+    \end{onecolentry}
+    
+        
+    \section{References}
+    \begin{onecolentry}
+    \begin{minipage}[t]{0.48\linewidth}
+    \textbf{Christopher Cotton}\\
+    Professor, Jarislowsky-Deutsch Chair in Economic and Financial Policy, and Director of the John Deutsch Institute\\
+    Queen's University\\
+    \hrefWithoutArrow{mailto:cc159@queensu.ca}{cc159@queensu.ca}
+
+    \vspace{0.3cm}
+
+    \textbf{Nahim Bin Zahur}\\
+    Assistant Professor, Department of Economics\\
+    Queen's University\\
+    \hrefWithoutArrow{mailto:nz17@queensu.ca}{nz17@queensu.ca}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.48\linewidth}
+    \textbf{Huw Lloyd-Ellis}\\
+    Professor, Department of Economics\\
+    Queen's University\\
+    \hrefWithoutArrow{mailto:lloydelh@queensu.ca}{lloydelh@queensu.ca}
+    \end{minipage}
+    \end{onecolentry}
+
+\end{document}

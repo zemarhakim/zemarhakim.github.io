@@ -1,5 +1,6 @@
 project:
   type: website
+  pre-render: ./build_cv.sh
 
 website:
   title: "Zemar Hakim"

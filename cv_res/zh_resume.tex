@@ -1,0 +1,348 @@
+\documentclass[10pt, a4paper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=0.5 cm,
+    bottom=0.5 cm,
+    left= 0.75 cm,
+    right=0.75 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage{comment}
+\usepackage[
+    pdftitle={Zemar's CV},
+    pdfauthor={Zemar Hakim},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    % \usepackage[T1]{fontenc} % this breaks sb2nov
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Zemar Hakim - Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\circ$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\begin{comment}
+    
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Updated September 2026}\hspace{\widthof{Updated October 2025}}
+    }}}%
+  }%
+}%
+\end{comment}
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+
+    %\placelastupdatedtext
+    \begin{header}
+        \textbf{\fontsize{24 pt}{24 pt}\selectfont Zemar Hakim}
+        
+        \vspace{0.3 cm}
+        
+        \normalsize
+        
+       % \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}Queen's Economics Department}%
+      %  \kern 0.25 cm%
+       % \AND%
+       % \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{mailto:z.hakim@queensu.ca}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}z.hakim@queensu.ca}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/zemarhakim2229}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}zemarhakim2229}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+       \mbox{\hrefWithoutArrow{https://zemarhakim.github.io}{{\footnotesize\faLink}\hspace*{0.13cm}zemarhakim.github.io}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{tel:+1 (905) 867 3840}{{\footnotesize\faPhone*}\hspace*{0.13cm}+1 (905) 867-3840}}%
+      %  \kern 0.25 cm%
+      % \AND%
+      % \kern 0.25 cm%
+      %  \mbox{\hrefWithoutArrow{https://github.com/zemarhakim}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}zemarhakim}}%
+    \end{header}
+
+    \vspace{0.3 cm - 0.3 cm}
+
+
+\begin{comment}
+    
+    \section{Quick Guide}
+
+    \begin{onecolentry}
+        \begin{highlightsforbulletentries}
+
+
+        \item Each section title is arbitrary and each section contains a list of entries.
+
+        \item There are 7 unique entry types: \textit{BulletEntry}, \textit{TextEntry}, \textit{EducationEntry}, \textit{ExperienceEntry}, \textit{NormalEntry}, \textit{PublicationEntry}, and \textit{OneLineEntry}.
+
+        \item Select a section title, pick an entry type, and start writing your section!
+
+        \item \href{https://docs.rendercv.com/user_guide/}{Here}, you can find a comprehensive user guide for RenderCV.
+
+
+        \end{highlightsforbulletentries}
+    \end{onecolentry}
+\end{comment}
+    \section{Education}
+
+        \begin{twocolentry}{
+            
+            
+        \textit{Candidate (Expected 2027)}}
+            \textbf{Queen's University - PhD, Economics}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Fields: Environmental and Climate Economics, Development Economics, Energy, Econometrics, Causal Inference
+                \item I use survey, administrative, spatial and weather data to better identify and understand the consequences of natural disasters. Topics include climate and disaster-risk analytics of locust invasions, floods, droughts and wildfires. 
+                \item Presenter at: Canadian Economics Association Annual Meetings (Canada, 2025, 2026), Applied Economics Conference (Serbia, 2026), Canadian Development Economics Study Group (Canada, 2025)
+                \item Research Assistant: Cherie Metcalf and Philippe Kabore (UQAR)
+                \item Teaching Assistant: 8 courses in graduate and undergraduate economics.
+                \item Awards: Mac Urquhart PhD Award for best second-year paper in Economics (\$2,500); Economics Department Award (\$10,000 x 4); E. Gay Mitchell Graduate Fellowship in Finance (\$8,000); Ontario Graduate Scholarship (\$15,000 x 2)
+            \end{highlights}
+        \end{onecolentry}
+
+\vspace{0.2 cm}
+        \begin{twocolentry}{
+ 
+        %\textit{Candidate}
+        }
+            \textbf{Toronto Metropolitan University - MA, International Economics and Finance}
+            
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Teaching Assistant: International Monetary Economics 
+                \item Research Assistant for Hyunju Lee: \hrefWithoutArrow{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3910487}{Overreaction and the Value of Information in a Pandemic}
+                \item Ranked among the Top 5 in cohort
+            \end{highlights}
+        \end{onecolentry}
+
+\vspace{0.2 cm}
+        \begin{twocolentry}{
+ 
+        %\textit{Candidate}
+        }
+            \textbf{Wilfrid Laurier University - BA, Honours Economics}
+            
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Awards: Dean's List (\$1,500); Wilfrid Laurier Entrance Scholarship (\$15,000)
+            \end{highlights}
+        \end{onecolentry}
+
+        \section{Professional Experience}
+
+        \begin{twocolentry}{
+\textit{2026}}
+    \textbf{Senior Associate Intern - Charles River Associates}
+\end{twocolentry}
+\begin{onecolentry}
+    \begin{highlights}
+        \item White Paper: Patent Monetization Promotion and SSO Participation.
+        \item Conducted quantitative and economic analysis for 5 litigation and merger engagements.
+        \item Built an automated codebook in R to support replication.
+        \item Built and maintained econometric models in R and Python (Azure Databricks) to evaluate damages and market dynamics.
+        \item Conducted industry research and translated findings into clear reports and presentations for clients.
+    \end{highlights}
+    \end{onecolentry}
+    \vspace{0.2 cm}
+            
+        \begin{twocolentry}{ \textit{2022-2026}}
+            \textbf{Senior Research Analyst - Global Affairs Canada}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Policy Paper: G7 Sanctions Gap Analysis
+                
+                \item Designed automated data pipelines in R, Python, and SQL with over 500 million records from 4 federal departments.
+                \item Developed causal and predictive models to quantify the impact of sanctions and conflicts, forecasting trade flows worth more than \$2 trillion annually and identifying anomalous transaction patterns across G7 economies.
+                \item Managed 2 direct reports and supported over 20 ministerial briefings.
+                \item Engineered architecture integrating over 25,000 records across allied jurisdictions, and built interactive dashboards for 3 federal departments.
+            \end{highlights}
+        \end{onecolentry}
+\vspace{0.2 cm}
+
+        \begin{twocolentry}{\textit{2025-2026}}
+            \textbf{Economics Expert (Contract Part-time) - Mercor}
+        \end{twocolentry}
+        \begin{onecolentry}
+    \begin{highlights}
+            \item Designed AI training data for large language models across 4 projects.
+            \item Diagnosed model failure modes in logic, numerical reasoning and code generation.
+    \end{highlights}
+        \end{onecolentry}
+
+\vspace{0.2 cm}
+            \begin{twocolentry}{\textit{2019 – 2020}}
+            \textbf{President and CEO - Wilfrid Laurier University Students' Union }
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Elected to represent over 17,000 students, managing an \$11 million budget and a team of 5 direct reports to deliver operations, services, and advocacy across institutional, municipal, provincial, and federal levels of government.
+                \item Created and led the university's first institutional committee on student basic needs, addressing food insecurity and housing, and sustained service continuity through emerging crises including the early stages of the COVID-19 pandemic.
+            \end{highlights}
+        \end{onecolentry}
+
+    
+    \section{Technical Skills}
+
+        \begin{onecolentry}
+            \textbf{Programming Languages:} R, Python, SQL, Stata, MATLAB, ArcGIS, QGIS, PostGIS
+        \end{onecolentry}
+\vspace{0.1cm}
+        \begin{onecolentry}
+            \textbf{Cloud and Collaboration:} GitHub, Microsoft Office (incl. Power BI, Azure), Google Suite (incl. GCP), AWS (S3, EC2), Jupyter, \LaTeX, Google Earth Engine, Databricks
+        \end{onecolentry}
+\vspace{0.1cm}
+        \begin{onecolentry}
+            \textbf{Languages:} English (Native), French (Advanced), Urdu (Native)
+        \end{onecolentry}
+
+\section{Volunteering and Community Activity}
+        \begin{onecolentry}
+        Shepherds of Good Hope - Ottawa Homeless Service \\
+            Mississauga Food Bank 
+        \end{onecolentry}
+        
+
+\end{document}

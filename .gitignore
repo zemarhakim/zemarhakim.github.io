@@ -5,3 +5,10 @@
 
 
 **/*.quarto_ipynb
+
+/cv_res/.build/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.synctex.gz
